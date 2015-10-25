@@ -6,7 +6,7 @@ ENV NEXUS_ARTIFACT http://cisetup_nexus_1:8081/service/local/artifact/maven/redi
 ENV ZIP_FILE spring-music-static.zip
 
 RUN apt-get update -y && \
-  apt-get install wget unzip nano -y && \
+  apt-get install wget unzip -y && \
   wget -O /tmp/${ZIP_FILE} ${NEXUS_ARTIFACT} && \
   unzip /tmp/${ZIP_FILE} -d /usr/share/nginx/assets/
 
