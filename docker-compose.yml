@@ -6,6 +6,7 @@ proxy:
    - appinstance1
    - appinstance2
   hostname: "proxy"
+  
 appinstance1:
   build: tomcat/
   expose:
