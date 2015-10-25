@@ -51,6 +51,6 @@ logspout:
   links:
    - elk
   ports:
-   - "8083:80"
+   - "8083:8000"
   environment:
     - ROUTE_URIS=logstash://elk:5000
