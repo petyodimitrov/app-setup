@@ -15,7 +15,7 @@ appinstance1:
    - "8180:8080"
   links:
    - nosqldb
-   - elk
+   #- elk
   hostname: "appinstance1"
 
 appinstance2:
@@ -26,7 +26,7 @@ appinstance2:
    - "8280:8080"
   links:
    - nosqldb
-   - elk
+  # - elk
   hostname: "appinstance2"
 
 nosqldb:
