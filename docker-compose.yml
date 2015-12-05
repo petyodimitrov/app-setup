@@ -15,7 +15,7 @@ appinstance1:
    - "8180:8080"
   links:
    - nosqldb
-   #- elk
+   - elk
   hostname: "appinstance1"
 
 appinstance2:
@@ -26,7 +26,7 @@ appinstance2:
    - "8280:8080"
   links:
    - nosqldb
-  # - elk
+   - elk
   hostname: "appinstance2"
 
 nosqldb:
@@ -36,22 +36,22 @@ nosqldb:
    - "/opt/mongodb:/data/db"
 
 #diable for comnarison with VirtualBox
-#elk:
-#  build: elk/
-#  ports:
-#   - "8081:80"
-#   - "8082:9200"
-#  expose:
-#   - "5000/upd"
-#  hostname: "elk" 
-#
-#logspout:
-#  build: logspout/
-#  volumes:
-#   - "/var/run/docker.sock:/tmp/docker.sock"
-#  links:
-#   - elk
-#  ports:
-#   - "8083:8000"
-#  environment:
-#    - ROUTE_URIS=logstash://elk:5000
+elk:
+  build: elk/
+  ports:
+   - "8081:80"
+   - "8082:9200"
+  expose:
+   - "5000/upd"
+  hostname: "elk" 
+
+logspout:
+  build: logspout/
+  volumes:
+   - "/var/run/docker.sock:/tmp/docker.sock"
+  links:
+   - elk
+  ports:
+   - "8083:8000"
+  environment:
+    - ROUTE_URIS=logstash://elk:5000
