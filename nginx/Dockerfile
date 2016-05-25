@@ -2,8 +2,8 @@ FROM nginx:1.11.0
 MAINTAINER Petyo Dimitrov
 ENV REFRESHED_AT 2016-05-24
 
-ENV NEXUS_HOST nexus
-ENV NEXUS_PORT 8081
+ENV NEXUS_HOST 192.168.99.100
+ENV NEXUS_PORT 9081
 ENV NEXUS_ARTIFACT http://${NEXUS_HOST}:${NEXUS_PORT}/service/local/artifact/maven/redirect?r=snapshots&g=org.cloudfoundry.samples&a=spring-music&v=1.0-SNAPSHOT&p=zip&c=static
 ENV ZIP_FILE spring-music-static.zip
 
