@@ -1,8 +1,10 @@
-FROM nginx:1.9.5
+FROM nginx:1.11.0
 MAINTAINER Petyo Dimitrov
-ENV REFRESHED_AT 2015-10-24
+ENV REFRESHED_AT 2016-05-24
 
-ENV NEXUS_ARTIFACT http://cisetup_nexus_1:8081/service/local/artifact/maven/redirect?r=snapshots&g=org.cloudfoundry.samples&a=spring-music&v=1.0-SNAPSHOT&p=zip&c=static
+ENV NEXUS_HOST nexus
+ENV NEXUS_PORT 8081
+ENV NEXUS_ARTIFACT http://${NEXUS_HOST}:${NEXUS_PORT}/service/local/artifact/maven/redirect?r=snapshots&g=org.cloudfoundry.samples&a=spring-music&v=1.0-SNAPSHOT&p=zip&c=static
 ENV ZIP_FILE spring-music-static.zip
 
 RUN apt-get update -y && \
